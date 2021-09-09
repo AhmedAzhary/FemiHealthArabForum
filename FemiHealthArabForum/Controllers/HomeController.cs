@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FemiHealthArabForum.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -30,5 +31,25 @@ namespace FemiHealthArabForum.Controllers
 
             return View();
         }
+
+        [HttpPost]
+        public ActionResult SaveAtendee(Atendee atendee)
+        {
+            // read the objects from Json file as List<Atendee> "desirialization"
+
+            // Append the new one 
+
+            // serialize the List<Atendee>
+
+            // save file again "Serialization"
+
+            return View();
+        }
+        /*Azhary section tmam wala eh ra2ik? */
+
+        /*Sara section  */
+        //public ActionResult AddAtendee(){}
+
+        
     }
 }

@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <textarea id="json" name="w3review" rows="4" cols="100">
+  </textarea>
+    <button onclick="mergeJson()"></button>
+</head>
+<body>
+    <div> 
+    </div>
+</body>
+</html>
+
+<script>
+    function mergeJson() {
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("MergeJson")',
+            dataType: 'json',
+            data: { json: $('#json').value },
+            success: function (data) {
+                alert('Wooow Merged! please download the excel file to see the impact!')
+            },
+            error: function (ex) {
+                alert(ex);
+            }
+        });
+    }
+
+</script>
