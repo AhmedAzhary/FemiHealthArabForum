@@ -9,6 +9,7 @@ namespace FemiHealthArabForum.Controllers
 {
     public class HomeController : Controller
     {
+        AtendeeLogic logic = new AtendeeLogic();
         public ActionResult Index()
         {
             return View();
@@ -48,8 +49,18 @@ namespace FemiHealthArabForum.Controllers
         /*Azhary section tmam wala eh ra2ik? */
 
         /*Sara section  */
-        //public ActionResult AddAtendee(){}
+        [HttpPost]
+        public void AddAtendee(string name, string phone, string email) {
 
-        
+            logic.AddAttendee(new Atendee() {
+            Name = name, Phone = phone, Email = email});
+        }
+
+        public ActionResult Export() {
+            logic.ExportToExcel();
+            return RedirectToAction("Index");
+        }
+
+
     }
 }
