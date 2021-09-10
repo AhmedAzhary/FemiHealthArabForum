@@ -42,7 +42,7 @@
             @Html.DisplayFor(modelItem => item.Phone)
         </td>
         <td style="border: 2px solid black; text-align: center; word-wrap: break-word;">
-            <button type="button" class="btn btn-info" onclick="Print('@item.Name', '@item.ID')">Print</button>
+            <a type="button" class="btn btn-info" href="/Home/print?name=@item.Name&id=@item.ID" target="_blank">Print</a>
 
         </td>
         <td style="border: 2px solid black; text-align: center; word-wrap: break-word;">

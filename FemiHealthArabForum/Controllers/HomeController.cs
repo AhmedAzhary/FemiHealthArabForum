@@ -21,45 +21,41 @@ namespace FemiHealthArabForum.Controllers
         {
             return View();
         }
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
 
         [HttpPost]
-        public ActionResult SaveAtendee(Atendee atendee)
+        public ActionResult AddAtendee(string name, string phone, string email)
         {
-            // read the objects from Json file as List<Atendee> "desirialization"
 
-            // Append the new one 
+            if (!Directory.Exists(Server.MapPath("~/JsonData")))
+            {
+                Directory.CreateDirectory(Server.MapPath("~/JsonData"));
+                System.IO.File.WriteAllText(Server.MapPath("~/JsonData/AttendeesJson.json"), null);
+            }
+            string id = logic.AddAttendee(new Atendee()
+            {
+                Name = name,
+                Phone = phone,
+                Email = email
+            }, Server.MapPath("~/JsonData/AttendeesJson.json"));
 
-            // serialize the List<Atendee>
+            return Json(new { name = name, id = id }, JsonRequestBehavior.AllowGet);
 
-            // save file again "Serialization"
-
-            return View();
-        }
-        /*Azhary section tmam wala eh ra2ik? */
-
-        /*Sara section  */
-        [HttpPost]
-        public void AddAtendee(string name, string phone, string email) {
-
-            logic.AddAttendee(new Atendee() {
-            Name = name, Phone = phone, Email = email});
         }
 
-        public ActionResult Export() {
-            logic.ExportToExcel();
+        public ActionResult Export()
+        {
+            if (!Directory.Exists(Server.MapPath("~/JsonData")))
+            {
+                Directory.CreateDirectory(Server.MapPath("~/JsonData"));
+                System.IO.File.WriteAllText(Server.MapPath("~/JsonData/AttendeesJson.json"), null);
+            }
+
+            if (!Directory.Exists(Server.MapPath("~/JsonData")))
+            {
+                Directory.CreateDirectory(Server.MapPath("~/JsonData"));
+                System.IO.File.WriteAllText(Server.MapPath("~/JsonData/AttendeesExcel.json"), null);
+            }
+            logic.ExportToExcel(Server.MapPath("~/JsonData/AttendeesJson.json"), Server.MapPath("~/JsonData/AttendeesExcel.xlsx"));
             return RedirectToAction("Index");
         }
 
@@ -68,41 +64,9 @@ namespace FemiHealthArabForum.Controllers
             int pageSize = 20;
             int pageIndex = page.HasValue ? page.Value : 1;
             ViewBag.searchText = searchText;
-            var attendees = new List<Atendee>()
-            {
-             new Atendee
-             {
-                 Email = "dasdasd",
-                 Name ="hamada kok hamadahamadahamadahamadahamadahamadao",
-                 Phone = "4234234",
-                 ID ="A1"
-             },
-             new Atendee
-             {
-                 Email = "dasdasd",
-                 Name ="hamada koko",
-                 Phone = "4234234",
-                 ID ="A3"
-             },new Atendee
-             {
-                 Email = "dasdasd",
-                 Name ="hamada koko",
-                 Phone = "4234234",
-                 ID ="A4"
-             },new Atendee
-             {
-                 Email = "dasdasd",
-                 Name ="hamada koko",
-                 Phone = "4234234",
-                 ID ="A5"
-             },new Atendee
-             {
-                 Email = "dasdasd",
-                 Name ="hamada koko",
-                 Phone = "4234234",
-                 ID ="A6"
-             }
-            }; // get from the static list
+            if (AtendeeLogic.attendees.Count == 0)
+                logic.FillArray(Server.MapPath("~/JsonData/AttendeesJson.json"));
+            var attendees = AtendeeLogic.attendees;
 
             if (!string.IsNullOrEmpty(searchText))
             {
@@ -116,54 +80,30 @@ namespace FemiHealthArabForum.Controllers
             int pageSize = 20;
             int pageIndex = page.HasValue ? page.Value : 1;
             ViewBag.searchText = searchText;
-            var attendees = new List<Atendee>()
-            {
-             new Atendee
-             {
-                 Email = "dasdasd",
-                 Name ="hamada kok hamadahamadahamadahamadahamadahamadao",
-                 Phone = "4234234",
-                 ID ="A1"
-             },
-             new Atendee
-             {
-                 Email = "dasdasd",
-                 Name ="hamada koko",
-                 Phone = "4234234",
-                 ID ="A3"
-             },new Atendee
-             {
-                 Email = "dasdasd",
-                 Name ="hamada koko",
-                 Phone = "4234234",
-                 ID ="A4"
-             },new Atendee
-             {
-                 Email = "dasdasd",
-                 Name ="hamada koko",
-                 Phone = "4234234",
-                 ID ="A5"
-             },new Atendee
-             {
-                 Email = "dasdasd",
-                 Name ="hamada koko",
-                 Phone = "4234234",
-                 ID ="A6"
-             }
-            }; // get from the static list
+            if (AtendeeLogic.attendees.Count == 0)
+                logic.FillArray(Server.MapPath("~/JsonData/AttendeesJson.json"));
+            var attendees = AtendeeLogic.attendees;
             searchText = searchText.ToLower();
             if (!string.IsNullOrEmpty(searchText))
             {
                 attendees = attendees.Where(att => att.ID.ToLower() == searchText || att.Name.ToLower().Contains(searchText.ToLower())).ToList();
             }
             IPagedList<Atendee> atList = attendees.ToPagedList(pageIndex, pageSize);
-            return Json(new { PV = RenderViewToString (ControllerContext, "~/Views/Home/_listing.cshtml", atList)}, JsonRequestBehavior.AllowGet);
+            return Json(new { PV = RenderViewToString(ControllerContext, "~/Views/Home/_listing.cshtml", atList) }, JsonRequestBehavior.AllowGet);
 
         }
         [HttpPost]
         public ActionResult Delete(string id)
         {
-            return Json(new { name = ""  }, JsonRequestBehavior.AllowGet);
+            var name = AtendeeLogic.attendees.Where(at => at.ID == id).Select(t => t.Name).FirstOrDefault();
+            logic.Delete(id, Server.MapPath("~/JsonData/AttendeesJson.json"));
+            return Json(new { name = name }, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult Print(string name, string id)
+        {
+            ViewBag.Name = name;
+            ViewBag.ID = id;
+            return View();
         }
         private static string RenderViewToString(ControllerContext context, string viewName, object model)
         {

@@ -118,47 +118,50 @@
                 <h2>Registration</h2>
                 <p>Add atendee</p>
             </div>
+            <div class="php-email-form" data-aos-delay="100">
+                <div class="form-row">
+                    <div class="col-lg-4 col-md-6 form-group">
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                        <div class="validate"></div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 form-group">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+                        <div class="validate"></div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 form-group">
+                        <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                        <div class="validate"></div>
+                    </div>
 
-            @*<form action="@Url.Action("About", "Home")" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
-            <div class="form-row">
-                <div class="col-lg-4 col-md-6 form-group">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                    <div class="validate"></div>
+                    <div class="text-center mx-3 "><button type="submit" onclick="AddAtendee()">Add and Print</button></div>
+                    <div class="text-center"><a href="@Url.Action("Export", "Home")">Export To Excel</a></div>
+
+                    </div>
+
+
+
+
+                    @*<div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <input type="text" id="name" name="fname">
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <input type="text" id="phone" name="phone" placeholder="Your Phone">
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <input type="text" id="email" name="lname">
+                    </div>
+
+                    <div class="text-center mx-3 "><button type="submit" onclick="AddAtendee()">Add</button></div>
+                    <div class="text-center"><button type="submit">Add and Print</button></div>
+                    <a href="@Url.Action("Export", "Home")">Export To Excel</a>
+
+                </div>*@
+
+
+
                 </div>
-                <div class="col-lg-4 col-md-6 form-group">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
-                    <div class="validate"></div>
-                </div>
-                <div class="col-lg-4 col-md-6 form-group">
-                    <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                    <div class="validate"></div>
-                </div>
-
-                <div class="text-center mx-3 "><button type="submit" onclick="AddAtendee()">Add</button></div>
-                <div class="text-center"><button type="submit">Add and Print</button></div>
-            </div>
-        </form>*@
-        <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <input type="text" id="name" name="fname">
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <input type="text" id="phone" name="phone" placeholder="Your Phone">
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <input type="text" id="email" name="lname">
-            </div>
-
-            <div class="text-center mx-3 "><button type="submit" onclick="AddAtendee()">Add</button></div>
-            <div class="text-center"><button type="submit">Add and Print</button></div>
-            <a href="@Url.Action("Export", "Home")">Export To Excel</a>
-
-        </div>
-        
-            
-            
-        </div>
-    </section><!-- End Book A Table Section -->
+</section><!-- End Book A Table Section -->
 
 
     
@@ -217,11 +220,12 @@
                 email: document.getElementById('email').value
             },
             function (data, status) {
-                //alert("Data: " + data + "\nStatus: " + status);
+                var url = "/Home/print?name=" + data.name + "&id=" + data.id;
+                window.open(url, '_blank').focus();
                 document.getElementById('name').value = "";
                 document.getElementById('phone').value = "";
                 email: document.getElementById('email').value = "";
-                
+
             });
         @*window.location.href =  new { name = thename, thePhone = the,  });*@
     }

@@ -40,11 +40,11 @@
     function Delete(id) {
         $.ajax({
             type: 'POST',
-            url: '@Url.Action("DeleteAttendee")',
+            url: '@Url.Action("Delete")',
             dataType: 'json',
             data: { id: id },
             success: function (name) {
-                alert(name + 'is deleted!');
+                alert(name.name + 'is deleted!');
                 Search();
             },
             error: function (ex) {
