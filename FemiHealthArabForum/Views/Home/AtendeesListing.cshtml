@@ -1,0 +1,55 @@
+﻿@using PagedList.Mvc
+
+@model  PagedList.IPagedList<FemiHealthArabForum.Models.Atendee>
+
+
+@{
+    ViewBag.Title = "Attendees List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="">
+    <div class="input-group rounded">
+        <input id="search" type="search" class="form-control rounded col-md-3" placeholder="Search" aria-label="Search"
+               aria-describedby="search-addon" />
+        <button class="col-md-3" onclick="Search()">Search</button>
+    </div>
+</div>
+
+<div id="results">
+    @Html.Partial("~/Views/Home/_listing.cshtml", Model)
+</div>
+
+
+<script>
+    function Search() {
+
+        var searchText = $('#search').val()
+        $.ajax({
+            url: "/home/GetAtendeesListing",
+            type: 'GET',
+            data: { searchText: searchText },
+            dataType: 'json',
+            success: function (result) {
+                
+                $('#results').html(result.PV);
+            }
+        });
+    }
+
+    function Delete(id) {
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("DeleteAttendee")',
+            dataType: 'json',
+            data: { id: id },
+            success: function (name) {
+                alert(name + 'is deleted!');
+                Search();
+            },
+            error: function (ex) {
+                alert(ex.Message);
+            }
+        });
+    }
+</script>
