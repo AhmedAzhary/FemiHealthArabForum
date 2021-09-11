@@ -56,7 +56,8 @@ namespace FemiHealthArabForum.Controllers
                 System.IO.File.WriteAllText(Server.MapPath("~/JsonData/AttendeesExcel.json"), null);
             }
             logic.ExportToExcel(Server.MapPath("~/JsonData/AttendeesJson.json"), Server.MapPath("~/JsonData/AttendeesExcel.xlsx"));
-            return RedirectToAction("Index");
+            return Json(new { val = true }, JsonRequestBehavior.AllowGet);
+
         }
 
         public ActionResult AtendeesListing(int? page, string searchText = "")
@@ -86,7 +87,7 @@ namespace FemiHealthArabForum.Controllers
             searchText = searchText.ToLower();
             if (!string.IsNullOrEmpty(searchText))
             {
-                attendees = attendees.Where(att => att.ID.ToLower() == searchText || att.Name.ToLower().Contains(searchText.ToLower())).ToList();
+                attendees = attendees.Where(att => att.ID.ToLower().Contains(searchText)   || att.Name.ToLower().Contains(searchText.ToLower())).ToList();
             }
             IPagedList<Atendee> atList = attendees.ToPagedList(pageIndex, pageSize);
             return Json(new { PV = RenderViewToString(ControllerContext, "~/Views/Home/_listing.cshtml", atList) }, JsonRequestBehavior.AllowGet);

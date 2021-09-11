@@ -1,6 +1,6 @@
 ﻿
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -21,11 +21,13 @@
 
 <script>
     function mergeJson() {
+        var hh = $('#json').val();
+        debugger
         $.ajax({
             type: 'POST',
             url: '@Url.Action("MergeJson")',
             dataType: 'json',
-            data: { json: $('#json').value },
+            data: { json: $('#json').val() },
             success: function (data) {
                 alert('Wooow Merged! please download the excel file to see the impact!')
             },

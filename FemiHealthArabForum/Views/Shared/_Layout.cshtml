@@ -34,6 +34,7 @@
         @RenderBody()
         <hr />
         <footer>
+            <div class="text-center"><a href="#" onclick="exportExcel()">Export To Excel</a></div>
             <p>&copy; @DateTime.Now.Year - CompuIT</p>
         </footer>
     </div>
@@ -45,6 +46,17 @@
         $("#search").keyup(function (event) {
             Search()
         });
+
+        function exportExcel() {
+            $.ajax({
+                url: "/home/Export",
+                type: 'GET',
+                dataType: 'json',
+                success: function (result) {
+                    alert("file exported!");
+                }
+            });
+        }
     </script>
 </body>
 </html>
