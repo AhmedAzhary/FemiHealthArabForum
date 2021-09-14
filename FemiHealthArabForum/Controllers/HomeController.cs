@@ -62,7 +62,7 @@ namespace FemiHealthArabForum.Controllers
 
         public ActionResult AtendeesListing(int? page, string searchText = "")
         {
-            int pageSize = 20;
+            int pageSize = 10;
             int pageIndex = page.HasValue ? page.Value : 1;
             ViewBag.searchText = searchText;
             if (AtendeeLogic.attendees.Count == 0)
@@ -78,7 +78,7 @@ namespace FemiHealthArabForum.Controllers
         }
         public ActionResult GetAtendeesListing(int? page, string searchText = "")
         {
-            int pageSize = 20;
+            int pageSize = 5;
             int pageIndex = page.HasValue ? page.Value : 1;
             ViewBag.searchText = searchText;
             if (AtendeeLogic.attendees.Count == 0)

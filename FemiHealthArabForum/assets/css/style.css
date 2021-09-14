@@ -8,10 +8,19 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
 body {
-  font-family: "Open Sans", sans-serif;
-  background: #0c0b09;
-  color: #fff;
+    font-family: "Open Sans", sans-serif;
+    background: url('../img/feme4.jpeg') no-repeat;
+    background-position: 8px 8px;
+    color: antiquewhite;
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-y: hidden;
 }
 
 a {
@@ -166,14 +175,13 @@ h1, h2, h3, h4, h5, h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-  background: rgba(12, 11, 9, 0.6);
-  border-bottom: 1px solid rgba(12, 11, 9, 0.6);
-  transition: all 0.5s;
-  z-index: 997;
-  padding: 15px 0;
-  top: 40px;
+    background: rgba(12, 11, 9, 0.6);
+    border-bottom: 1px solid rgba(12, 11, 9, 0.6);
+    transition: all 0.5s;
+    z-index: 997;
+    padding: 5px 0;
+    top: 1px;
 }
-
 #header.header-scrolled {
   top: 0;
   background: rgba(0, 0, 0, 0.85);
@@ -230,11 +238,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
-  color: #d9ba85;
+  color: pink;
 }
 
 .nav-menu .book-a-table a {
-  border: 2px solid #cda45e;
+  border: 2px solid lightpink;
   color: #fff;
   border-radius: 50px;
   padding: 8px 25px;
@@ -246,7 +254,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu .book-a-table a:hover {
-  background: #cda45e;
+  background: pink;
   color: #fff;
 }
 
@@ -476,14 +484,14 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
-#hero {
+/*#hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/femini3.jpeg") top center;
+  background: url("../img/feme4.jpeg") top center;
   background-size: cover;
   position: relative;
   padding: 0;
-}
+}*/
 
 #hero:before {
   content: "";
@@ -514,14 +522,14 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Poppins", sans-serif;
 }
 
-#hero h1 span {
-  color: #cda45e;
-}
+    #hero h1 span {
+        color: #d17c7f;
+    }
 
 #hero h2 {
-  color: #eee;
-  margin-bottom: 10px 0 0 0;
-  font-size: 22px;
+    color: #d1467d;
+    margin-bottom: 10px 0 0 0;
+    font-size: 22px;
 }
 
 #hero .btns {
@@ -539,13 +547,13 @@ h1, h2, h3, h4, h5, h6 {
   transition: 0.3s;
   line-height: 1;
   color: white;
-  border: 2px solid #cda45e;
+  border: 2px solid pink;
 }
 
-#hero .btn-menu:hover, #hero .btn-book:hover {
-  background: #cda45e;
-  color: #fff;
-}
+    #hero .btn-menu:hover, #hero .btn-book:hover {
+        background: lightpink;
+        color: #d1467d;
+    }
 
 #hero .btn-book {
   margin-left: 15px;
@@ -690,7 +698,7 @@ section {
 }
 
 .section-title {
-  padding-bottom: 40px;
+  padding-bottom: -1px;
 }
 
 .section-title h2 {
@@ -714,14 +722,14 @@ section {
   margin: 4px 10px;
 }
 
-.section-title p {
-  margin: 0;
-  margin: 0;
-  font-size: 36px;
-  font-weight: 700;
-  font-family: "Playfair Display", serif;
-  color: #cda45e;
-}
+    .section-title p {
+        margin: 0;
+        margin: 0;
+        font-size: 36px;
+        font-weight: 700;
+        font-family: "Playfair Display", serif;
+        color: #d17c7f;
+    }
 
 /*--------------------------------------------------------------
 # About
@@ -1095,7 +1103,7 @@ section {
 }
 
 .events .section-title h2 {
-  color: #fff;
+  color: pink;
 }
 
 .events .container {
@@ -1237,14 +1245,14 @@ section {
   animation: animate-loading 1s linear infinite;
 }
 
-.book-a-table .php-email-form input, .book-a-table .php-email-form textarea {
-  border-radius: 0;
-  box-shadow: none;
-  font-size: 14px;
-  background: #0c0b09;
-  border-color: #625b4b;
-  color: white;
-}
+    .book-a-table .php-email-form input, .book-a-table .php-email-form textarea {
+        border-radius: 0;
+        box-shadow: none;
+        font-size: 14px;
+        background: antiquewhite;
+        border-color: lightpink;
+        color: black;
+    }
 
 .book-a-table .php-email-form input::-webkit-input-placeholder, .book-a-table .php-email-form textarea::-webkit-input-placeholder {
   color: #a49b89;
@@ -1278,17 +1286,17 @@ section {
   padding: 10px 12px;
 }
 
-.book-a-table .php-email-form button[type="submit"] {
-  background: #cda45e;
-  border: 0;
-  padding: 10px 35px;
-  color: #fff;
-  transition: 0.4s;
-  border-radius: 50px;
-}
+    .book-a-table .php-email-form button[type="submit"] {
+        background: #d17c7f;
+        border: 0;
+        padding: 10px 35px;
+        color: #fff;
+        transition: 0.4s;
+        border-radius: 50px;
+    }
 
 .book-a-table .php-email-form button[type="submit"]:hover {
-  background: #d3af71;
+  background: hotpink;
 }
 
 /*--------------------------------------------------------------

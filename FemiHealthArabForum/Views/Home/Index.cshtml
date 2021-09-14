@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 @{
-    string name = "Femni Health Arab Forum";
+    string name = "Femi Health Arab Forum 2021  ";
 }
 <head>
     <meta charset="utf-8">
@@ -37,171 +37,105 @@
 </head>
 
 <body>
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center">
 
-
-<!-- ======= Header ======= -->
-<header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center">
-
-        <h1 class="logo mr-auto"><a href="#hero">@name</a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html" class="logo mr-auto"><img src="~/assets/img/logo.png" alt="" class="img-fluid"></a>-->
+            <h1 class="logo mr-auto"><a>@name</a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html" class="logo mr-auto"><img src="~/assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
             <nav class="nav-menu d-none d-lg-block">
                 <ul>
-                    <li class="active"><a href="#hero">Home</a></li>
-                    <li><a href="#about">About</a></li>
                     <li><a target="_blank" href="/Home/AtendeesListing">Manage Attendees pages</a></li>
-                    @*<li><a href="#menu">Menu</a></li>
-                        <li><a href="#specials">Specials</a></li>
-                        <li><a href="#events">Events</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#chefs">Chefs</a></li>
-                        <li><a href="#contact">Contact</a></li>*@
-                    <li class="book-a-table text-center"><a href="#book-a-table">Register event atendee</a></li>
                 </ul>
             </nav><!-- .nav-menu -->
 
-    </div>
-</header><!-- End Header -->
-<!-- ======= Hero Section ======= -->
-<section id="hero" class="d-flex align-items-center">
-    <div class="container position-relative text-center text-lg-left" data-aos="zoom-in" data-aos-delay="100">
-        <div class="row">
-            <div class="col-lg-8">
-                <h1>Welcome to <span>@name</span></h1>
-                <h2>
-                </h2>
+        </div>
+    </header><!-- End Header -->
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+        <div class="container position-relative text-center text-lg-left" data-aos="zoom-in" data-aos-delay="100">
+            <div class="row" style=" >
+                <div class="col-lg-12">
+                    <br />
+                    <h2>
+                    </h2>
 
                     <div class="btns">
-                        <a href="#book-a-table" class="btn-book animated fadeInUp scrollto">Register event atendee</a>
+                        <a href="#book-a-table" class="btn-book animated fadeInUp scrollto" hidden>Register</a>
                     </div>
                 </div>
-                @*<div class="col-lg-4 d-flex align-items-center justify-content-center" data-aos="zoom-in" data-aos-delay="200">
-                        <a href="https://fb.watch/7V3Nk2xR6T/" class="venobox play-btn" data-vbtype="video" data-autoplay="true"></a>
-                    </div>*@
 
-        </div>
-    </div>
-</section><!-- End Hero -->
-
-<main id="main">
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-        <div class="container" data-aos="fade-up">
-
-            <div class="row">
-                <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="about-img">
-                        <img src="~/assets/img/Logo.jpeg" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-                    <h3>@name</h3>
-                    <p class="font-italic">
-                        It is the first Society of its kind in Egypt and Africa and includes more than 150 doctors from different governorates of the Arab Republic of Egypt This Society was established along the lines of similar societies all over the world, such as the British, American and French societies
-
-                        The Society is interested in a new type of cancer, namely cancers of the reproductive system (cervix - uterus - ovaries - vaginal canal - external genital organs)
-
-                    </p>
-                </div>
             </div>
-
         </div>
-    </section><!-- End About Section -->
-    <!-- ======= Book A Table Section ======= -->
-    <section id="book-a-table" class="book-a-table">
-        <div class="container" data-aos="fade-up">
-
-            <div class="section-title">
-                <h2>Registration</h2>
-                <p>Add atendee</p>
-            </div>
-            <div class="php-email-form" data-aos-delay="100">
-                <div class="form-row">
-                    <div class="col-lg-4 col-md-6 form-group">
-                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                        <div class="validate"></div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 form-group">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
-                        <div class="validate"></div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 form-group">
-                        <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                        <div class="validate"></div>
-                    </div>
-
-                    <div class="text-center mx-3 "><button type="submit" onclick="AddAtendee()">Add and Print</button></div>
-
-                    </div>
+    </section><!-- End Hero -->
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <main id="main">
 
 
+        <section id="book-a-table" class="book-a-table">
+            <div class="container" data-aos="fade-up">
 
-
-                    @*<div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <input type="text" id="name" name="fname">
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <input type="text" id="phone" name="phone" placeholder="Your Phone">
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <input type="text" id="email" name="lname">
-                    </div>
-
-                    <div class="text-center mx-3 "><button type="submit" onclick="AddAtendee()">Add</button></div>
-                    <div class="text-center"><button type="submit">Add and Print</button></div>
-                    <a href="@Url.Action("Export", "Home")">Export To Excel</a>
-
-                </div>*@
-
-
-
+                <div class="section-title">
+                    <h1 style="text-align:center">Welcome to <span style="color:#d17c7f">@name</span></h1>
+                    <p>Register</p>
                 </div>
-</section><!-- End Book A Table Section -->
+                <div class="php-email-form" data-aos-delay="100">
+                    <div class="form-row">
+                        <div class="col-lg-4 col-md-6 form-group">
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                            <div class="validate"></div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 form-group">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+                            <div class="validate"></div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 form-group">
+                            <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                            <div class="validate"></div>
+                        </div>
+
+                        <div class="text-center mx-3 "><button type="submit" onclick="AddAtendee()">Add and Print</button></div>
+
+                    </div>
+                </div>
+                <br />
+                <div class="copyright" style=" align-items: center; text-align: center;">
+                    &copy; Copyright <strong><span>Compu-IT</span></strong>. All Rights Reserved
+                </div>
+        </section><!-- End Book A Table Section -->
 
 
-    
 
 
 
 
 
-</main><!-- End #main -->
-<!-- ======= Footer ======= -->
-<footer id="footer">
 
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+    </footer> End Footer
 
-    <div class="container">
-        <div class="copyright">
-            &copy; Copyright <strong><span>Compu-IT</span></strong>. All Rights Reserved
-        </div>
-        <div class="credits">
-            <!-- All the links in the footer should remain intact. -->
-            <!-- You can delete the links only if you purchased the pro version. -->
-            <!-- Licensing information: https://bootstrapmade.com/license/ -->
-            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/restaurantly-restaurant-template/ -->
-        </div>
-    </div>
-</footer><!-- End Footer -->
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
 
-<div id="preloader"></div>
-<a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="~/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="~/assets/vendor/php-email-form/validate.js"></script>
+    <script src="~/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="~/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/assets/vendor/venobox/venobox.min.js"></script>
+    <script src="~/assets/vendor/aos/aos.js"></script>
 
-<!-- Vendor JS Files -->
-<script src="~/assets/vendor/jquery/jquery.min.js"></script>
-<script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="~/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-<script src="~/assets/vendor/php-email-form/validate.js"></script>
-<script src="~/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-<script src="~/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="~/assets/vendor/venobox/venobox.min.js"></script>
-<script src="~/assets/vendor/aos/aos.js"></script>
-
-<!-- Template Main JS File -->
-<script src="~/assets/js/main.js"></script>
+    <!-- Template Main JS File -->
+    <script src="~/assets/js/main.js"></script>
 
 </body>
 
@@ -212,6 +146,13 @@
 
 
     function AddAtendee() {
+        var name = document.getElementById('name').value;
+        var phone = document.getElementById('phone').value;
+        var email = document.getElementById('email').value;
+        if (name == '' || phone == '' || email == '') {
+            alert('Please Enter Name, email and phone to register!')
+            return
+        }
         $.post("@Url.Action("AddAtendee","Home")",
             {
                 name: document.getElementById('name').value,
@@ -226,7 +167,7 @@
                 email: document.getElementById('email').value = "";
 
             });
-        @*window.location.href =  new { name = thename, thePhone = the,  });*@
     }
+    
 
 </script>

@@ -4,14 +4,90 @@
 }
 
 <!DOCTYPE html>
+<style>
+    html {
+        min-height: 100%;
+        height: auto;
+    }
 
+    body {
+        min-height: 100%;
+        height: auto;
+        background: url('../../assets/img/feme4.jpeg') no-repeat;
+        background-position: center bottom;
+    } 
+</style>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>AtendeesManagment</title>
 </head>
 <body>
-    <div> 
+    <div>
     </div>
+
+
+    <section id="book-a-table" class="book-a-table">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Registration</h2>
+                <p>Register</p>
+            </div>
+            <div class="php-email-form" data-aos-delay="100">
+                <div class="form-row">
+                    <div class="col-lg-4 col-md-6 form-group">
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                        <div class="validate"></div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 form-group">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+                        <div class="validate"></div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 form-group">
+                        <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                        <div class="validate"></div>
+                    </div>
+
+                    <div class="text-center mx-3 "><button type="submit" onclick="AddAtendee()">Add and Print</button></div>
+
+                </div>
+            </div>
+    </section><!-- End Book A Table Section -->
+
+
+
+
 </body>
 </html>
+
+<script type="text/javascript">
+
+
+
+    function AddAtendee() {
+        var name = document.getElementById('name').value;
+        var phone = document.getElementById('phone').value;
+        var email = document.getElementById('email').value;
+        if (name == '' || phone == '' || email == '') {
+            alert('Please Enter Name, email and phone to register!')
+            return
+        }
+        $.post("@Url.Action("AddAtendee","Home")",
+            {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value
+            },
+            function (data, status) {
+                var url = "/Home/print?name=" + data.name + "&id=" + data.id;
+                window.open(url, '_blank').focus();
+                document.getElementById('name').value = "";
+                document.getElementById('phone').value = "";
+                email: document.getElementById('email').value = "";
+
+            });
+    }
+
+
+</script>
